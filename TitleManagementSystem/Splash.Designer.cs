@@ -85,7 +85,11 @@ namespace TitleManagementSystem
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Splash";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splash";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
