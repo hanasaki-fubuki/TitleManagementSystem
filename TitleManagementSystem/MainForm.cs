@@ -5,9 +5,9 @@ namespace TitleManagementSystem
 {
     public partial class MainForm : Form
     {
-        
-        
-        
+        //args for the main form
+        public static int Uid = -1;
+
         protected override CreateParams CreateParams        //禁用右上角关闭按钮
         {
             get
@@ -21,6 +21,7 @@ namespace TitleManagementSystem
         public MainForm()
         {
             InitializeComponent();
+            Uid = Authenticator.Uid;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace TitleManagementSystem
             lblGender.Text = Authenticator.Gender == 1 ? @"Male" : @"Female";
             lblEmail.Text = Authenticator.Email;
             lblPhone.Text = Authenticator.Phone;
-            lblUid.Text = Authenticator.Uid.ToString();
+            lblUid.Text = Uid.ToString();
             if (Authenticator.IsAdmin == 0)
             {
                 lblIsAdmin.Text = @"Super User";
@@ -66,7 +67,17 @@ namespace TitleManagementSystem
             }
         }
 
-        
-        
+
+        private void btnChPwd_Click(object sender, EventArgs e)
+        {
+            var changePassword = new ChangePassword();
+            changePassword.ShowDialog();
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            var editProfile = new EditProfile();
+            editProfile.ShowDialog();
+        }
     }
 }

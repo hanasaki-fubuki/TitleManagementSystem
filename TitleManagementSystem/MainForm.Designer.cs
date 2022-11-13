@@ -47,7 +47,11 @@ namespace TitleManagementSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.btnChPwd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -189,11 +193,43 @@ namespace TitleManagementSystem
             this.label1.TabIndex = 0;
             this.label1.Text = "Name: ";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnProfile);
+            this.groupBox2.Controls.Add(this.btnChPwd);
+            this.groupBox2.Location = new System.Drawing.Point(408, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(261, 124);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "User Management";
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(133, 21);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(121, 23);
+            this.btnProfile.TabIndex = 14;
+            this.btnProfile.Text = "Edit Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // btnChPwd
+            // 
+            this.btnChPwd.Location = new System.Drawing.Point(6, 21);
+            this.btnChPwd.Name = "btnChPwd";
+            this.btnChPwd.Size = new System.Drawing.Size(121, 23);
+            this.btnChPwd.TabIndex = 13;
+            this.btnChPwd.Text = "Change Password";
+            this.btnChPwd.UseVisualStyleBackColor = true;
+            this.btnChPwd.Click += new System.EventHandler(this.btnChPwd_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -204,8 +240,14 @@ namespace TitleManagementSystem
             this.Text = "Main - Title Management System";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnChPwd;
+        private System.Windows.Forms.Button btnProfile;
+
+        private System.Windows.Forms.GroupBox groupBox2;
 
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnExit;
