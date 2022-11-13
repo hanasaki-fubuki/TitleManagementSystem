@@ -10,6 +10,24 @@ namespace TitleManagementSystem
     {
 
         private readonly string _mainConn = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
+        
+        //args for the main form
+        public static int Uid = -1;
+        public static string NameOfUser;
+        public static int Gender = -1;
+        public static string Email;
+        public static string Phone;
+        public static int IsAdmin = -1;
+        
+        protected override CreateParams CreateParams        //禁用右上角关闭按钮
+        {
+            get
+            {
+                var createParams = base.CreateParams;
+                createParams.ClassStyle |= 512;
+                return createParams;
+            }
+        }
 
         public Authenticator()
         {
@@ -34,23 +52,38 @@ namespace TitleManagementSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MySqlConnection mainConn = new MySqlConnection(_mainConn);
-            string mySql = "select * from user_table where username='" + txtUsername.Text + "' and " + "password='" + txtPassword.Text + "'";
-            MySqlCommand loginProcess = new MySqlCommand(mySql, mainConn);
+            var mainConn = new MySqlConnection(_mainConn);
+            var mySql = "select * from user_table where username='" + txtUsername.Text + "' and " + "password='" + txtPassword.Text + "'";
+            var loginProcess = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
-            MySqlDataReader loginReader = loginProcess.ExecuteReader();
+            var loginReader = loginProcess.ExecuteReader();
             if (loginReader.Read())
             {
-                MainForm mainForm = new MainForm();
+                loginReader.Close();
+                mySql = "select id, personal_info_id, isAdmin from user_table where username='" + txtUsername.Text + "'";
+                var getUser = new MySqlCommand(mySql, mainConn);
+                var userReader = getUser.ExecuteReader();
+                userReader.Read();
+                Uid = userReader.GetInt32(0);
+                var infoId = userReader.GetInt32(1);
+                IsAdmin = userReader.GetInt32(2);
+                userReader.Close();
+                mySql = "select * from personal_info_table where id=" + infoId;
+                var getPersonalInfo = new MySqlCommand(mySql, mainConn);
+                var personalInfoReader = getPersonalInfo.ExecuteReader();
+                personalInfoReader.Read();
+                NameOfUser = personalInfoReader.GetString(1);
+                Gender = personalInfoReader.GetInt32(2);
+                Email = personalInfoReader.GetString(3);
+                Phone = personalInfoReader.GetString(4);
+                var mainForm = new MainForm();
                 mainForm.Show();
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                Hide();
+                Close();
             }
             else
             {
@@ -60,7 +93,6 @@ namespace TitleManagementSystem
                 txtPassword.SelectAll();
                 
             }
-            loginReader.Close();
             mainConn.Close();
             
         }
