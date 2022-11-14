@@ -8,9 +8,7 @@ namespace TitleManagementSystem
     public partial class ChangePassword : Form
     {
         private readonly string _mainConn = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-        
-        private readonly int _uid;
-        
+
         protected override CreateParams CreateParams        //禁用右上角关闭按钮
         {
             get
@@ -23,15 +21,15 @@ namespace TitleManagementSystem
         public ChangePassword()
         {
             InitializeComponent();
-            _uid = MainForm.Uid;
+            var uid = MainForm.Uid;
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select username from user_table where id='" + _uid + "'";
+            var mySql = "select username from user_table where id='" + uid + "'";
             var getUsername = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var getUsernameReader = getUsername.ExecuteReader();
             if (getUsernameReader.Read())
             {
-                lblUid.Text = _uid.ToString();
+                lblUid.Text = uid.ToString();
                 txtUsername.Text = getUsernameReader.GetString("username");
             }
             else

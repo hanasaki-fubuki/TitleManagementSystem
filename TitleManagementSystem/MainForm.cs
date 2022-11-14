@@ -22,10 +22,6 @@ namespace TitleManagementSystem
         {
             InitializeComponent();
             Uid = Authenticator.Uid;
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
             lblName.Text = Authenticator.NameOfUser;
             lblGender.Text = Authenticator.Gender == 1 ? @"Male" : @"Female";
             lblEmail.Text = Authenticator.Email;
@@ -43,9 +39,8 @@ namespace TitleManagementSystem
             {
                 lblIsAdmin.Text = @"Non Admin";
             }
-            
         }
-        
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             var dr = MessageBox.Show(@"Are you sure to logout?", @"Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -79,5 +74,6 @@ namespace TitleManagementSystem
             var editProfile = new EditProfile();
             editProfile.ShowDialog();
         }
+        
     }
 }

@@ -50,6 +50,7 @@ namespace TitleManagementSystem
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnChPwd = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -224,11 +225,21 @@ namespace TitleManagementSystem
             this.btnChPwd.UseVisualStyleBackColor = true;
             this.btnChPwd.Click += new System.EventHandler(this.btnChPwd_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(408, 62);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(261, 74);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Administration";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 450);
+            this.ClientSize = new System.Drawing.Size(686, 450);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -238,11 +249,12 @@ namespace TitleManagementSystem
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main - Title Management System";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.GroupBox groupBox3;
 
         private System.Windows.Forms.Button btnChPwd;
         private System.Windows.Forms.Button btnProfile;
