@@ -187,7 +187,6 @@ namespace TitleManagementSystem
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password";
-            this.Load += new System.EventHandler(this.ChangePassword_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

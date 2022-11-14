@@ -24,6 +24,21 @@ namespace TitleManagementSystem
         {
             InitializeComponent();
             _uid = MainForm.Uid;
+            var mainConn = new MySqlConnection(_mainConn);
+            var mySql = "select username from user_table where id='" + _uid + "'";
+            var getUsername = new MySqlCommand(mySql, mainConn);
+            mainConn.Open();
+            var getUsernameReader = getUsername.ExecuteReader();
+            if (getUsernameReader.Read())
+            {
+                lblUid.Text = _uid.ToString();
+                txtUsername.Text = getUsernameReader.GetString("username");
+            }
+            else
+            {
+                MessageBox.Show(@"Cannot get userinfo. Try re-login. ", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
         }
 
 
@@ -51,26 +66,10 @@ namespace TitleManagementSystem
             else
             {
                 MessageBox.Show(@"Current password is incorrect. ", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCurrent.SelectAll();
+                txtCurrent.Focus();
             }
             mainConn.Close();
-        }
-
-        private void ChangePassword_Load(object sender, EventArgs e)
-        {
-            var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select username from user_table where id='" + _uid + "'";
-            var getUsername = new MySqlCommand(mySql, mainConn);
-            mainConn.Open();
-            var getUsernameReader = getUsername.ExecuteReader();
-            if (getUsernameReader.Read())
-            {
-                lblUid.Text = _uid.ToString();
-                txtUsername.Text = getUsernameReader.GetString("username");
-            }
-            else
-            {
-                MessageBox.Show(@"Cannot get userinfo. Try re-login. ", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void txtConfirmNew_TextChanged(object sender, EventArgs e)
