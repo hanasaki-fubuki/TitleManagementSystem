@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TitleManagementSystem
@@ -30,14 +31,29 @@ namespace TitleManagementSystem
             if (Authenticator.IsAdmin == 0)
             {
                 lblIsAdmin.Text = @"Super User";
+                lblPrivilege.Text = @"Logged in as Super User with highest privileges. ";
+                btnAdmin1.Text = @"User Database";
+                btnAdmin1.BackColor = Color.Red;
+                btnAdmin1.ForeColor = Color.White;
+                btnAdmin2.Text = @"Profile Database";
+                btnAdmin2.BackColor = Color.Red;
+                btnAdmin2.ForeColor = Color.White;
+                btnAdmin1.Enabled = true;
+                btnAdmin2.Enabled = true;
             }
             else if (Authenticator.IsAdmin == 1)
             {
                 lblIsAdmin.Text = @"Admin";
+                lblPrivilege.Text = @"Logged in as Admin with admin privileges. ";
+                btnAdmin1.Enabled = true;
+                btnAdmin2.Enabled = true;
             }
             else
             {
                 lblIsAdmin.Text = @"Non Admin";
+                lblPrivilege.Text = @"No administrative privilege acquired. ";
+                btnAdmin1.Enabled = false;
+                btnAdmin2.Enabled = false;
             }
         }
 
@@ -58,7 +74,7 @@ namespace TitleManagementSystem
             var dr = MessageBox.Show(@"Are you sure to exit?", @"Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                Application.Exit();
             }
         }
 
@@ -74,6 +90,40 @@ namespace TitleManagementSystem
             var editProfile = new EditProfile();
             editProfile.ShowDialog();
         }
-        
+
+        private void btnAdmin1_Click(object sender, EventArgs e)
+        {
+            if (btnAdmin1.Text == @"Add User")
+            {
+                var addUser = new AddUser();
+                addUser.ShowDialog();
+            }
+            else if (btnAdmin1.Text == @"User Database")
+            {
+                if (FormPool.UserDatabase.IsDisposed || FormPool.UserDatabase == null)
+                {
+                    FormPool.UserDatabase = new UserDatabase();
+                }
+                FormPool.UserDatabase.Show();
+            }
+            
+        }
+
+        private void btnAdmin2_Click(object sender, EventArgs e)
+        {
+            if (btnAdmin2.Text == @"Change User Pass")
+            {
+                var changeUserPass = new ChangeUserPass();
+                changeUserPass.ShowDialog();
+            } 
+            else if (btnAdmin2.Text == @"Profile Database")
+            {
+                if (FormPool.ProfileDatabase.IsDisposed || FormPool.ProfileDatabase == null)
+                {
+                    FormPool.ProfileDatabase = new ProfileDatabase();
+                } 
+                FormPool.ProfileDatabase.Show();
+            }
+        }
     }
 }

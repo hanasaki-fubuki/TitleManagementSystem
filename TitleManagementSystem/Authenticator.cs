@@ -52,20 +52,20 @@ namespace TitleManagementSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select * from user_table where username='" + txtUsername.Text + "' and " + "password='" + txtPassword.Text + "'";
+            var mySql = $"select * from user_table where username='{txtUsername.Text}' and password='{txtPassword.Text}'";
             var loginProcess = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var loginReader = loginProcess.ExecuteReader();
             if (loginReader.Read())
             {
                 loginReader.Close();
-                mySql = "select id, profile_id, isAdmin from user_table where username='" + txtUsername.Text + "'";
+                mySql = $"select id, profile_id, isAdmin from user_table where username='{txtUsername.Text}'";
                 var getUser = new MySqlCommand(mySql, mainConn);
                 var userReader = getUser.ExecuteReader();
                 userReader.Read();
@@ -73,7 +73,7 @@ namespace TitleManagementSystem
                 var infoId = userReader.GetInt32(1);
                 IsAdmin = userReader.GetInt32(2);
                 userReader.Close();
-                mySql = "select * from profile_table where id=" + infoId;
+                mySql = $"select * from profile_table where id={infoId}";
                 var getProfile = new MySqlCommand(mySql, mainConn);
                 var profileInfoReader = getProfile.ExecuteReader();
                 profileInfoReader.Read();
@@ -91,10 +91,8 @@ namespace TitleManagementSystem
                 txtUsername.SelectAll();
                 txtUsername.Focus();
                 txtPassword.SelectAll();
-                
             }
             mainConn.Close();
-            
         }
     }
 }

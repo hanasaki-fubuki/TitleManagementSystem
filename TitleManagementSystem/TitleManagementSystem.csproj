@@ -150,6 +150,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AddUser.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="AddUser.Designer.cs">
+          <DependentUpon>AddUser.cs</DependentUpon>
+        </Compile>
         <Compile Include="Authenticator.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -162,17 +168,30 @@
         <Compile Include="ChangePassword.Designer.cs">
           <DependentUpon>ChangePassword.cs</DependentUpon>
         </Compile>
+        <Compile Include="ChangeUserPass.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ChangeUserPass.Designer.cs">
+          <DependentUpon>ChangeUserPass.cs</DependentUpon>
+        </Compile>
         <Compile Include="EditProfile.cs">
           <SubType>Form</SubType>
         </Compile>
         <Compile Include="EditProfile.Designer.cs">
           <DependentUpon>EditProfile.cs</DependentUpon>
         </Compile>
+        <Compile Include="FormPool.cs" />
         <Compile Include="MainForm.cs">
           <SubType>Form</SubType>
         </Compile>
         <Compile Include="MainForm.Designer.cs">
           <DependentUpon>MainForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="ProfileDatabase.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ProfileDatabase.Designer.cs">
+          <DependentUpon>ProfileDatabase.cs</DependentUpon>
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,11 +201,20 @@
         <Compile Include="Splash.Designer.cs">
           <DependentUpon>Splash.cs</DependentUpon>
         </Compile>
+        <Compile Include="UserDatabase.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="UserDatabase.Designer.cs">
+          <DependentUpon>UserDatabase.cs</DependentUpon>
+        </Compile>
         <EmbeddedResource Include="Authenticator.resx">
           <DependentUpon>Authenticator.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="ChangePassword.resx">
           <DependentUpon>ChangePassword.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="ChangeUserPass.resx">
+          <DependentUpon>ChangeUserPass.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="EditProfile.resx">
           <DependentUpon>EditProfile.cs</DependentUpon>

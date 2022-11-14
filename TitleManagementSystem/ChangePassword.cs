@@ -23,7 +23,7 @@ namespace TitleManagementSystem
             InitializeComponent();
             var uid = MainForm.Uid;
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select username from user_table where id='" + uid + "'";
+            var mySql = $"select username from user_table where id='{uid}'";
             var getUsername = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var getUsernameReader = getUsername.ExecuteReader();
@@ -48,14 +48,14 @@ namespace TitleManagementSystem
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select * from user_table where id='" + Convert.ToInt32(lblUid.Text) + "' and " + "password='" + txtCurrent.Text + "'";
+            var mySql = $"select * from user_table where id='{Convert.ToInt32(lblUid.Text)}' and password='{txtCurrent.Text}'";
             var chPwd = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var chPwdReader = chPwd.ExecuteReader();
             if (chPwdReader.Read())
             {
                 chPwdReader.Close();
-                var updatePwd = "update user_table set password='" + txtNew.Text + "' where id='" + Convert.ToInt32(lblUid.Text) + "'";
+                var updatePwd = $"update user_table set password='{txtNew.Text}' where id='{Convert.ToInt32(lblUid.Text)}'";
                 var updatePwdCmd = new MySqlCommand(updatePwd, mainConn);
                 updatePwdCmd.ExecuteNonQuery();
                 MessageBox.Show(@"Password successfully changed. ", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);

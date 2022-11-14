@@ -51,8 +51,12 @@ namespace TitleManagementSystem
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnChPwd = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAdmin1 = new System.Windows.Forms.Button();
+            this.lblPrivilege = new System.Windows.Forms.Label();
+            this.btnAdmin2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -227,12 +231,44 @@ namespace TitleManagementSystem
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAdmin1);
+            this.groupBox3.Controls.Add(this.lblPrivilege);
+            this.groupBox3.Controls.Add(this.btnAdmin2);
             this.groupBox3.Location = new System.Drawing.Point(408, 62);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(261, 74);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Administration";
+            // 
+            // btnAdmin1
+            // 
+            this.btnAdmin1.Enabled = false;
+            this.btnAdmin1.Location = new System.Drawing.Point(6, 40);
+            this.btnAdmin1.Name = "btnAdmin1";
+            this.btnAdmin1.Size = new System.Drawing.Size(121, 23);
+            this.btnAdmin1.TabIndex = 3;
+            this.btnAdmin1.Text = "Add User";
+            this.btnAdmin1.UseVisualStyleBackColor = true;
+            this.btnAdmin1.Click += new System.EventHandler(this.btnAdmin1_Click);
+            // 
+            // lblPrivilege
+            // 
+            this.lblPrivilege.Location = new System.Drawing.Point(6, 22);
+            this.lblPrivilege.Name = "lblPrivilege";
+            this.lblPrivilege.Size = new System.Drawing.Size(248, 15);
+            this.lblPrivilege.TabIndex = 2;
+            this.lblPrivilege.Text = "privilegeIndicator";
+            // 
+            // btnAdmin2
+            // 
+            this.btnAdmin2.Location = new System.Drawing.Point(133, 40);
+            this.btnAdmin2.Name = "btnAdmin2";
+            this.btnAdmin2.Size = new System.Drawing.Size(121, 23);
+            this.btnAdmin2.TabIndex = 1;
+            this.btnAdmin2.Text = "Change User Pass";
+            this.btnAdmin2.UseVisualStyleBackColor = true;
+            this.btnAdmin2.Click += new System.EventHandler(this.btnAdmin2_Click);
             // 
             // MainForm
             // 
@@ -251,8 +287,13 @@ namespace TitleManagementSystem
             this.Text = "Main - Title Management System";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnAdmin1;
+        private System.Windows.Forms.Button btnAdmin2;
+        private System.Windows.Forms.Label lblPrivilege;
 
         private System.Windows.Forms.GroupBox groupBox3;
 

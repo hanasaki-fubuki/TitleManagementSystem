@@ -27,7 +27,7 @@ namespace TitleManagementSystem
             InitializeComponent();
             _uid = MainForm.Uid;
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select username, profile_id from user_table where id='" + _uid + "'";
+            var mySql = $"select username, profile_id from user_table where id='{_uid}'";
             var getUsername = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var getUserReader = getUsername.ExecuteReader();
@@ -37,7 +37,7 @@ namespace TitleManagementSystem
                 _profileId = Convert.ToInt32(getUserReader["profile_id"]);
                 txtUsername.Text = getUserReader.GetString("username");
                 getUserReader.Close();
-                var mySql2 = "select * from profile_table where id='" + _profileId + "'";
+                var mySql2 = $"select * from profile_table where id='{_profileId}'";
                 var getProfile = new MySqlCommand(mySql2, mainConn);
                 var getProfileReader = getProfile.ExecuteReader();
                 if (getProfileReader.Read())
@@ -58,7 +58,7 @@ namespace TitleManagementSystem
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = "select * from user_table where id='" + Convert.ToInt32(lblUid.Text) + "' and " + "password='" + txtPwd.Text + "'";
+            var mySql = $"select * from user_table where id='{Convert.ToInt32(lblUid.Text)}' and password='{txtPwd.Text}'";
             var pwdCheck = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var pwdCheckReader = pwdCheck.ExecuteReader();
@@ -66,7 +66,7 @@ namespace TitleManagementSystem
             {
                 pwdCheckReader.Close();
                 var gender = cboGender.Text == @"Male" ? 1 : 0;
-                var mySql2 = "update profile_table set name='" + txtName.Text + "', gender='" + gender + "', email='" + txtEmail.Text + "', phone='" + txtPhone.Text + "' where id='" + _profileId + "'";
+                var mySql2 = $"update profile_table set name='{txtName.Text}', gender='{gender}', email='{txtEmail.Text}', phone='{txtPhone.Text}' where id='{_profileId}'";
                 var updateProfile = new MySqlCommand(mySql2, mainConn);
                 updateProfile.ExecuteNonQuery();
                 MessageBox.Show(@"Profile updated successfully.", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
