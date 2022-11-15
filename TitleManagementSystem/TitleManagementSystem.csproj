@@ -207,6 +207,9 @@
         <Compile Include="UserDatabase.Designer.cs">
           <DependentUpon>UserDatabase.cs</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="AddUser.resx">
+          <DependentUpon>AddUser.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Authenticator.resx">
           <DependentUpon>Authenticator.cs</DependentUpon>
         </EmbeddedResource>
@@ -222,6 +225,9 @@
         <EmbeddedResource Include="MainForm.resx">
           <DependentUpon>MainForm.cs</DependentUpon>
         </EmbeddedResource>
+        <EmbeddedResource Include="ProfileDatabase.resx">
+          <DependentUpon>ProfileDatabase.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -233,6 +239,9 @@
         </Compile>
         <EmbeddedResource Include="Splash.resx">
           <DependentUpon>Splash.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UserDatabase.resx">
+          <DependentUpon>UserDatabase.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="icon.ico" />
         <None Include="packages.config" />
