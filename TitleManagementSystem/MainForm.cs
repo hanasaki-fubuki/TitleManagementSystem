@@ -62,13 +62,11 @@ namespace TitleManagementSystem
         private void btnLogout_Click(object sender, EventArgs e)
         {
             var dr = MessageBox.Show(@"Are you sure to logout?", @"Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                var authenticator = new Authenticator();
-                authenticator.Show();
-                Close();
-            }
-            
+            if (dr != DialogResult.Yes) return;
+            var authenticator = new Authenticator();
+            authenticator.Show();
+            Close();
+
         }
         
         private void btnExit_Click(object sender, EventArgs e)
