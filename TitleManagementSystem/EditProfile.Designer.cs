@@ -61,10 +61,10 @@ namespace TitleManagementSystem
             // txtUsername
             // 
             this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(138, 52);
+            this.txtUsername.Location = new System.Drawing.Point(105, 52);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.ReadOnly = true;
-            this.txtUsername.Size = new System.Drawing.Size(204, 20);
+            this.txtUsername.Size = new System.Drawing.Size(237, 20);
             this.txtUsername.TabIndex = 14;
             // 
             // label4
@@ -79,13 +79,13 @@ namespace TitleManagementSystem
             // 
             this.label3.Location = new System.Drawing.Point(12, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.Size = new System.Drawing.Size(87, 23);
             this.label3.TabIndex = 12;
             this.label3.Text = "Your Username: ";
             // 
             // lblUid
             // 
-            this.lblUid.Location = new System.Drawing.Point(138, 32);
+            this.lblUid.Location = new System.Drawing.Point(105, 32);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(93, 23);
             this.lblUid.TabIndex = 11;
@@ -95,7 +95,7 @@ namespace TitleManagementSystem
             // 
             this.label2.Location = new System.Drawing.Point(12, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 23);
+            this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 10;
             this.label2.Text = "Your User ID:";
             // 
