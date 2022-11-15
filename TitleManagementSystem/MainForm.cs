@@ -32,6 +32,7 @@ namespace TitleManagementSystem
             {
                 lblIsAdmin.Text = @"Super User";
                 lblPrivilege.Text = @"Logged in as Super User with highest privileges. ";
+                lblPrivilege.ForeColor = Color.Red;
                 btnAdmin1.Text = @"User Database";
                 btnAdmin1.BackColor = Color.Red;
                 btnAdmin1.ForeColor = Color.White;
@@ -45,6 +46,7 @@ namespace TitleManagementSystem
             {
                 lblIsAdmin.Text = @"Admin";
                 lblPrivilege.Text = @"Logged in as Admin with admin privileges. ";
+                lblPrivilege.ForeColor = Color.Aqua;
                 btnAdmin1.Enabled = true;
                 btnAdmin2.Enabled = true;
             }
