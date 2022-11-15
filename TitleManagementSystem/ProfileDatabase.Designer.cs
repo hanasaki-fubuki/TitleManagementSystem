@@ -82,7 +82,7 @@ namespace TitleManagementSystem
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProfileDatabase";
-            this.Text = "Profile Database";
+            this.Text = "Profile Database - [Super User Access]";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfile)).EndInit();
             this.ResumeLayout(false);
         }
