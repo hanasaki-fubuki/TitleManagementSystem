@@ -105,6 +105,7 @@ namespace TitleManagementSystem
                     FormPool.UserDatabase = new UserDatabase();
                 }
                 FormPool.UserDatabase.Show();
+                FormPool.UserDatabase.BringToFront();
             }
             
         }
@@ -121,8 +122,9 @@ namespace TitleManagementSystem
                 if (FormPool.ProfileDatabase.IsDisposed || FormPool.ProfileDatabase == null)
                 {
                     FormPool.ProfileDatabase = new ProfileDatabase();
-                } 
+                }
                 FormPool.ProfileDatabase.Show();
+                FormPool.ProfileDatabase.BringToFront();
             }
         }
     }
