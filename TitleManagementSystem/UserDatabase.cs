@@ -28,6 +28,7 @@ namespace TitleManagementSystem
         
         private void GridViewBind()
         {
+            dgvUser.DataSource = null;
             var myConn = new MySqlConnection(_mainConn);
             var myDa = new MySqlDataAdapter("select * from user_table", myConn);
             myConn.Open();
@@ -76,6 +77,11 @@ namespace TitleManagementSystem
             var updateCmd = new MySqlCommand($"update user_table set {column}='{value}' where id='{id}'", myConn);
             updateCmd.ExecuteNonQuery();
             myConn.Close();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GridViewBind();
         }
     }
 }

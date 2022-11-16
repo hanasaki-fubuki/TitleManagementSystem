@@ -55,7 +55,7 @@ namespace TitleManagementSystem
             this.txtPwd.Location = new System.Drawing.Point(138, 153);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(204, 20);
-            this.txtPwd.TabIndex = 15;
+            this.txtPwd.TabIndex = 5;
             this.txtPwd.UseSystemPasswordChar = true;
             // 
             // txtUsername
@@ -113,7 +113,7 @@ namespace TitleManagementSystem
             this.btnCancel.Location = new System.Drawing.Point(267, 179);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 17;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -122,7 +122,7 @@ namespace TitleManagementSystem
             this.btnConfirm.Location = new System.Drawing.Point(186, 179);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 16;
+            this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "&Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -140,7 +140,7 @@ namespace TitleManagementSystem
             this.txtName.Location = new System.Drawing.Point(59, 78);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(123, 20);
-            this.txtName.TabIndex = 19;
+            this.txtName.TabIndex = 1;
             // 
             // label6
             // 
@@ -163,14 +163,14 @@ namespace TitleManagementSystem
             this.txtEmail.Location = new System.Drawing.Point(59, 101);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(283, 20);
-            this.txtEmail.TabIndex = 23;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(59, 127);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(283, 20);
-            this.txtPhone.TabIndex = 25;
+            this.txtPhone.TabIndex = 4;
             // 
             // label8
             // 
@@ -188,7 +188,7 @@ namespace TitleManagementSystem
             this.cboGender.Location = new System.Drawing.Point(242, 77);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(100, 21);
-            this.cboGender.TabIndex = 26;
+            this.cboGender.TabIndex = 2;
             // 
             // EditProfile
             // 

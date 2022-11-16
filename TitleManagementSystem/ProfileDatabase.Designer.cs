@@ -35,6 +35,7 @@ namespace TitleManagementSystem
             this.dgvProfile = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblWarning = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@ namespace TitleManagementSystem
             this.btnClose.Location = new System.Drawing.Point(713, 398);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 1;
+            this.btnClose.TabIndex = 2;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -65,15 +66,26 @@ namespace TitleManagementSystem
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
             this.lblWarning.Location = new System.Drawing.Point(12, 395);
             this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(695, 26);
+            this.lblWarning.Size = new System.Drawing.Size(614, 26);
             this.lblWarning.TabIndex = 2;
             this.lblWarning.Text = "lblWarning";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(632, 398);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 1;
+            this.btnRefresh.Text = "&Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ProfileDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 427);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvProfile);
@@ -86,6 +98,8 @@ namespace TitleManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfile)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btnRefresh;
 
         private System.Windows.Forms.Label lblWarning;
 

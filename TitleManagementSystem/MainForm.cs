@@ -89,6 +89,10 @@ namespace TitleManagementSystem
         {
             var editProfile = new EditProfile();
             editProfile.ShowDialog();
+            lblName.Text = editProfile.NameOfUser;
+            lblGender.Text = editProfile.Gender == 1 ? @"Male" : @"Female";
+            lblEmail.Text = editProfile.Email;
+            lblPhone.Text = editProfile.Phone;
         }
 
         private void btnAdmin1_Click(object sender, EventArgs e)

@@ -81,6 +81,7 @@ namespace TitleManagementSystem
                 Gender = profileInfoReader.GetInt32(2);
                 Email = profileInfoReader.GetString(3);
                 Phone = profileInfoReader.GetString(4);
+                profileInfoReader.Close();
                 var mainForm = new MainForm();
                 mainForm.Show();
                 Close();

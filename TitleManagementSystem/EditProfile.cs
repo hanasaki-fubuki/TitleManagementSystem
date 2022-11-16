@@ -12,6 +12,11 @@ namespace TitleManagementSystem
         private readonly int _uid;
         private readonly int _profileId;
 
+        public string NameOfUser;
+        public int Gender;
+        public string Email;
+        public string Phone;
+
         protected override CreateParams CreateParams        //禁用右上角关闭按钮
         {
             get
@@ -65,8 +70,11 @@ namespace TitleManagementSystem
             if (pwdCheckReader.Read())
             {
                 pwdCheckReader.Close();
-                var gender = cboGender.Text == @"Male" ? 1 : 0;
-                var mySql2 = $"update profile_table set name='{txtName.Text}', gender='{gender}', email='{txtEmail.Text}', phone='{txtPhone.Text}' where id='{_profileId}'";
+                NameOfUser = txtName.Text;
+                Gender = cboGender.Text == @"Male" ? 1 : 0;
+                Email = txtEmail.Text;
+                Phone = txtPhone.Text;
+                var mySql2 = $"update profile_table set name='{NameOfUser}', gender={Gender}, email='{Email}', phone='{Phone}' where id='{_profileId}'";
                 var updateProfile = new MySqlCommand(mySql2, mainConn);
                 updateProfile.ExecuteNonQuery();
                 MessageBox.Show(@"Profile updated successfully.", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -94,7 +94,7 @@ namespace TitleManagementSystem
                 userExistsReader.Close();
                 var myCmd = new MySqlCommand($"insert into profile_table set name='{txtName.Text}', gender={gender}, email='{txtEmail.Text}', phone='{txtPhone.Text}'", myConn);
                 myCmd.ExecuteNonQuery();
-                var getProfileId = new MySqlCommand("select id from profile_table where name='{txtName.Text}' order by id desc limit 1", myConn);
+                var getProfileId = new MySqlCommand($"select id from profile_table where name='{txtName.Text}' order by id desc", myConn);
                 var profileId = Convert.ToInt32(getProfileId.ExecuteScalar());
                 var myCmd2 = new MySqlCommand($"insert into user_table set username='{txtUsername.Text}', password='{txtPwd.Text}', isAdmin='{isAdmin}', profile_id={profileId}", myConn);
                 myCmd2.ExecuteNonQuery();

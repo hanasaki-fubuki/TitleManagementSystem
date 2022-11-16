@@ -52,7 +52,7 @@ namespace TitleManagementSystem
             this.btnCancel.Location = new System.Drawing.Point(325, 124);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 25;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -63,7 +63,7 @@ namespace TitleManagementSystem
             this.btnConfirm.Location = new System.Drawing.Point(244, 124);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 24;
+            this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "&Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -74,7 +74,7 @@ namespace TitleManagementSystem
             this.txtConfirmNew.Location = new System.Drawing.Point(138, 98);
             this.txtConfirmNew.Name = "txtConfirmNew";
             this.txtConfirmNew.Size = new System.Drawing.Size(262, 20);
-            this.txtConfirmNew.TabIndex = 23;
+            this.txtConfirmNew.TabIndex = 4;
             this.txtConfirmNew.UseSystemPasswordChar = true;
             this.txtConfirmNew.TextChanged += new System.EventHandler(this.txtConfirmNew_TextChanged);
             this.txtConfirmNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirmNew_KeyDown);
@@ -85,7 +85,7 @@ namespace TitleManagementSystem
             this.txtNew.Location = new System.Drawing.Point(138, 75);
             this.txtNew.Name = "txtNew";
             this.txtNew.Size = new System.Drawing.Size(262, 20);
-            this.txtNew.TabIndex = 22;
+            this.txtNew.TabIndex = 3;
             this.txtNew.UseSystemPasswordChar = true;
             this.txtNew.TextChanged += new System.EventHandler(this.txtNew_TextChanged);
             // 
@@ -94,7 +94,7 @@ namespace TitleManagementSystem
             this.txtUsername.Location = new System.Drawing.Point(138, 29);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(204, 20);
-            this.txtUsername.TabIndex = 20;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // label6
@@ -150,7 +150,7 @@ namespace TitleManagementSystem
             this.btnSearch.Location = new System.Drawing.Point(348, 27);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(52, 23);
-            this.btnSearch.TabIndex = 26;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
