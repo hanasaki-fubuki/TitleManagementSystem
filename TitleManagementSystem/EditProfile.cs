@@ -8,8 +8,7 @@ namespace TitleManagementSystem
     public partial class EditProfile : Form
     {
         private readonly string _mainConn = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-        
-        private readonly int _uid;
+
         private readonly int _profileId;
 
         public string NameOfUser;
@@ -30,15 +29,15 @@ namespace TitleManagementSystem
         public EditProfile()
         {
             InitializeComponent();
-            _uid = MainForm.Uid;
+            var uid = MainForm.Uid;
             var mainConn = new MySqlConnection(_mainConn);
-            var mySql = $"select username, profile_id from user_table where id='{_uid}'";
+            var mySql = $"select username, profile_id from user_table where id='{uid}'";
             var getUsername = new MySqlCommand(mySql, mainConn);
             mainConn.Open();
             var getUserReader = getUsername.ExecuteReader();
             if (getUserReader.Read())
             {
-                lblUid.Text = _uid.ToString();
+                lblUid.Text = uid.ToString();
                 _profileId = Convert.ToInt32(getUserReader["profile_id"]);
                 txtUsername.Text = getUserReader.GetString("username");
                 getUserReader.Close();

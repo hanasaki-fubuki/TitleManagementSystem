@@ -83,7 +83,7 @@ namespace TitleManagementSystem
             var userExistsReader = userExists.ExecuteReader();
             userExistsReader.Read();
             var userExistsResult = userExistsReader.HasRows;
-            if (userExistsResult == true)
+            if (userExistsResult)
             {
                 MessageBox.Show(@"Username already exists!", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 userExistsReader.Close();
