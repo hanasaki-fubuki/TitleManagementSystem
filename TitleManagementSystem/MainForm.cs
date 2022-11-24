@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -55,6 +54,7 @@ namespace TitleManagementSystem
                     lblJobPrivilege.Text = @"Privilege acquired, job management enabled. ";
                     lblJobPrivilege.ForeColor = Color.Aqua;
                     btnHistory.Enabled = true;
+                    btnJobTransfer.Enabled = true;
                     btnAdmin1.Enabled = true;
                     btnAdmin2.Enabled = true;
                     break;
@@ -202,7 +202,13 @@ namespace TitleManagementSystem
 
         private void btnJobTransfer_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            var transfer = new Transfer();
+            transfer.ShowDialog();
+        }
+
+        private void cboColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMainSearch.Focus();
         }
     }
 }

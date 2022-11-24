@@ -43,7 +43,8 @@ namespace TitleManagementSystem
             dgvTransfer.Columns[4].HeaderText = @"Previous Title";
             dgvTransfer.Columns[5].HeaderText = @"New Job";
             dgvTransfer.Columns[6].HeaderText = @"New Title";
-            lblWarning.Text = "Changing transfer log is strictly prohibited! \nPlease contact the administrator if you have any questions.";
+            lblWarning1.Text = @"Changing transfer log is strictly prohibited! ";
+            lblWarning2.Text = @"Please contact the administrator if you have any questions.";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -47,7 +47,8 @@ namespace TitleManagementSystem
             dgvUser.Columns[1].ReadOnly = true;
             dgvUser.Columns[4].Frozen = true;
             dgvUser.Columns[4].ReadOnly = true;
-            lblWarning.Text = "Changing User ID, Username and Linked Profile ID is not allowed.\nWARNING: Edit data table directly may cause data loss, proceed with caution.";
+            lblWarning1.Text = @"Changing User ID, Username and Linked Profile ID is not allowed. ";
+            lblWarning2.Text = @"WARNING: Edit data table directly may cause data loss, proceed with caution.";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

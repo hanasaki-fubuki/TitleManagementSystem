@@ -34,8 +34,9 @@ namespace TitleManagementSystem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileDatabase));
             this.dgvProfile = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblWarning = new System.Windows.Forms.Label();
+            this.lblWarning1 = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.lblWarning2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,14 +64,14 @@ namespace TitleManagementSystem
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // lblWarning
+            // lblWarning1
             // 
-            this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(12, 395);
-            this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(614, 26);
-            this.lblWarning.TabIndex = 2;
-            this.lblWarning.Text = "lblWarning";
+            this.lblWarning1.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning1.Location = new System.Drawing.Point(12, 395);
+            this.lblWarning1.Name = "lblWarning1";
+            this.lblWarning1.Size = new System.Drawing.Size(614, 23);
+            this.lblWarning1.TabIndex = 2;
+            this.lblWarning1.Text = "lblWarning1";
             // 
             // btnRefresh
             // 
@@ -82,13 +83,23 @@ namespace TitleManagementSystem
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // lblWarning2
+            // 
+            this.lblWarning2.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning2.Location = new System.Drawing.Point(12, 411);
+            this.lblWarning2.Name = "lblWarning2";
+            this.lblWarning2.Size = new System.Drawing.Size(614, 22);
+            this.lblWarning2.TabIndex = 3;
+            this.lblWarning2.Text = "lblWarning2";
+            // 
             // ProfileDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 427);
+            this.Controls.Add(this.lblWarning2);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.lblWarning);
+            this.Controls.Add(this.lblWarning1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvProfile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -101,9 +112,11 @@ namespace TitleManagementSystem
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Label lblWarning2;
+
         private System.Windows.Forms.Button btnRefresh;
 
-        private System.Windows.Forms.Label lblWarning;
+        private System.Windows.Forms.Label lblWarning1;
 
         private System.Windows.Forms.Button btnClose;
 

@@ -43,7 +43,8 @@ namespace TitleManagementSystem
             dgvProfile.Columns[4].HeaderText = @"Phone";
             dgvProfile.Columns[0].Frozen = true;
             dgvProfile.Columns[0].ReadOnly = true;
-            lblWarning.Text = "Changing Profile ID is not allowed.\nWARNING: Edit data table directly may cause data loss, proceed with caution.";
+            lblWarning1.Text = @"Changing Profile ID is not allowed. ";
+            lblWarning2.Text = @"WARNING: Edit data table directly may cause data loss, proceed with caution.";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

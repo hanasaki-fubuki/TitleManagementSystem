@@ -365,6 +365,7 @@ namespace TitleManagementSystem
             this.cboColumn.Name = "cboColumn";
             this.cboColumn.Size = new System.Drawing.Size(121, 21);
             this.cboColumn.TabIndex = 19;
+            this.cboColumn.SelectedIndexChanged += new System.EventHandler(this.cboColumn_SelectedIndexChanged);
             // 
             // btnSearch
             // 
