@@ -18,6 +18,7 @@ namespace TitleManagementSystem
         public static string Email;
         public static string Phone;
         public static int IsAdmin = -1;
+        public static string Position;
         
         protected override CreateParams CreateParams        //禁用右上角关闭按钮
         {
@@ -81,6 +82,7 @@ namespace TitleManagementSystem
                 Gender = profileInfoReader.GetInt32(2);
                 Email = profileInfoReader.GetString(3);
                 Phone = profileInfoReader.GetString(4);
+                Position = profileInfoReader.GetString(5) + ", " + profileInfoReader.GetString(6);
                 profileInfoReader.Close();
                 var mainForm = new MainForm();
                 mainForm.Show();

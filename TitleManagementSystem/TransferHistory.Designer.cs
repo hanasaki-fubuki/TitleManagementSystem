@@ -2,7 +2,7 @@
 
 namespace TitleManagementSystem
 {
-    partial class UserDatabase
+    partial class TransferHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -31,17 +31,31 @@ namespace TitleManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDatabase));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferHistory));
+            this.dgvTransfer = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
-            this.dgvUser = new System.Windows.Forms.DataGridView();
             this.lblWarning = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransfer)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvTransfer
+            // 
+            this.dgvTransfer.AllowUserToAddRows = false;
+            this.dgvTransfer.AllowUserToDeleteRows = false;
+            this.dgvTransfer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTransfer.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTransfer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransfer.Location = new System.Drawing.Point(12, 12);
+            this.dgvTransfer.Name = "dgvTransfer";
+            this.dgvTransfer.ReadOnly = true;
+            this.dgvTransfer.Size = new System.Drawing.Size(776, 380);
+            this.dgvTransfer.TabIndex = 0;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(713, 395);
+            this.btnClose.Location = new System.Drawing.Point(713, 398);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -49,31 +63,18 @@ namespace TitleManagementSystem
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dgvUser
-            // 
-            this.dgvUser.AllowUserToAddRows = false;
-            this.dgvUser.AllowUserToDeleteRows = false;
-            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUser.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUser.Location = new System.Drawing.Point(12, 9);
-            this.dgvUser.Name = "dgvUser";
-            this.dgvUser.Size = new System.Drawing.Size(776, 380);
-            this.dgvUser.TabIndex = 0;
-            this.dgvUser.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellEndEdit);
-            // 
             // lblWarning
             // 
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(12, 392);
+            this.lblWarning.Location = new System.Drawing.Point(12, 395);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(614, 26);
-            this.lblWarning.TabIndex = 4;
+            this.lblWarning.TabIndex = 2;
             this.lblWarning.Text = "lblWarning";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(632, 395);
+            this.btnRefresh.Location = new System.Drawing.Point(632, 398);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 1;
@@ -81,7 +82,7 @@ namespace TitleManagementSystem
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // UserDatabase
+            // TransferHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,14 +90,14 @@ namespace TitleManagementSystem
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dgvUser);
+            this.Controls.Add(this.dgvTransfer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "UserDatabase";
-            this.Text = "User Database - [Super User Access]";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            this.Name = "TransferHistory";
+            this.Text = "Job Transfer History - [Administrator Access]";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransfer)).EndInit();
             this.ResumeLayout(false);
         }
 
@@ -105,7 +106,8 @@ namespace TitleManagementSystem
         private System.Windows.Forms.Label lblWarning;
 
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.DataGridView dgvUser;
+
+        private System.Windows.Forms.DataGridView dgvTransfer;
 
         #endregion
     }

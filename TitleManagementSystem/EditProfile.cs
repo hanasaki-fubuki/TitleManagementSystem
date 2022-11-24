@@ -50,6 +50,10 @@ namespace TitleManagementSystem
                     txtEmail.Text = getProfileReader.GetString("email");
                     txtPhone.Text = getProfileReader.GetString("phone");
                     cboGender.Text = getProfileReader.GetInt32("Gender") == 1 ? @"Male" : @"Female";
+                    NameOfUser = txtName.Text;
+                    Gender = cboGender.Text == @"Male" ? 1 : 0;
+                    Email = txtEmail.Text;
+                    Phone = txtPhone.Text;
                 }
             }
             else

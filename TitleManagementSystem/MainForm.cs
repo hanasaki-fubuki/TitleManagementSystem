@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
 using System.Drawing;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace TitleManagementSystem
 {
     public partial class MainForm : Form
     {
+        private readonly string _mainConn = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
+        
         //args for the main form
         public static int Uid = -1;
 
@@ -28,35 +34,56 @@ namespace TitleManagementSystem
             lblEmail.Text = Authenticator.Email;
             lblPhone.Text = Authenticator.Phone;
             lblUid.Text = Uid.ToString();
-            if (Authenticator.IsAdmin == 0)
+            lblPosition.Text = Authenticator.Position;
+            switch (Authenticator.IsAdmin)
             {
-                lblIsAdmin.Text = @"Super User";
-                lblPrivilege.Text = @"Logged in as Super User with highest privileges. ";
-                lblPrivilege.ForeColor = Color.Red;
-                btnAdmin1.Text = @"User Database";
-                btnAdmin1.BackColor = Color.Red;
-                btnAdmin1.ForeColor = Color.White;
-                btnAdmin2.Text = @"Profile Database";
-                btnAdmin2.BackColor = Color.Red;
-                btnAdmin2.ForeColor = Color.White;
-                btnAdmin1.Enabled = true;
-                btnAdmin2.Enabled = true;
+                case 0:
+                    lblPrivilege.Text = @"Logged in as Super User with highest privileges. ";
+                    lblPrivilege.ForeColor = Color.Red;
+                    btnAdmin1.Text = @"User Database";
+                    btnAdmin1.BackColor = Color.Red;
+                    btnAdmin1.ForeColor = Color.White;
+                    btnAdmin2.Text = @"Profile Database";
+                    btnAdmin2.BackColor = Color.Red;
+                    btnAdmin2.ForeColor = Color.White;
+                    btnAdmin1.Enabled = true;
+                    btnAdmin2.Enabled = true;
+                    break;
+                case 1:
+                    lblPrivilege.Text = @"Logged in as Admin with administrative privileges. ";
+                    lblPrivilege.ForeColor = Color.Aqua;
+                    lblJobPrivilege.Text = @"Privilege acquired, job management enabled. ";
+                    lblJobPrivilege.ForeColor = Color.Aqua;
+                    btnHistory.Enabled = true;
+                    btnAdmin1.Enabled = true;
+                    btnAdmin2.Enabled = true;
+                    break;
+                default:
+                    lblPrivilege.Text = @"No administrative privilege acquired. ";
+                    btnAdmin1.Enabled = false;
+                    btnAdmin2.Enabled = false;
+                    break;
             }
-            else if (Authenticator.IsAdmin == 1)
-            {
-                lblIsAdmin.Text = @"Admin";
-                lblPrivilege.Text = @"Logged in as Admin with admin privileges. ";
-                lblPrivilege.ForeColor = Color.Aqua;
-                btnAdmin1.Enabled = true;
-                btnAdmin2.Enabled = true;
-            }
-            else
-            {
-                lblIsAdmin.Text = @"Non Admin";
-                lblPrivilege.Text = @"No administrative privilege acquired. ";
-                btnAdmin1.Enabled = false;
-                btnAdmin2.Enabled = false;
-            }
+            GridViewBind();
+            cboColumn.Text = @"Name";
+            txtMainSearch.Focus();
+        }
+
+        void GridViewBind()
+        {
+            dgvMain.DataSource = null;
+            var myConn = new MySqlConnection(_mainConn);
+            var myDa = new MySqlDataAdapter("select name, job, title, email, phone from profile_table", myConn);
+            myConn.Open();
+            var myDataSet = new DataSet();
+            myDa.Fill(myDataSet, "profile_table");
+            dgvMain.DataSource = myDataSet.Tables["profile_table"];
+            myConn.Close();
+            dgvMain.Columns[0].HeaderText = @"Name";
+            dgvMain.Columns[1].HeaderText = @"Job";
+            dgvMain.Columns[2].HeaderText = @"Title";
+            dgvMain.Columns[3].HeaderText = @"Email";
+            dgvMain.Columns[4].HeaderText = @"Phone";
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -101,6 +128,7 @@ namespace TitleManagementSystem
             {
                 var addUser = new AddUser();
                 addUser.ShowDialog();
+                GridViewBind();
             }
             else if (btnAdmin1.Text == @"User Database")
             {
@@ -130,6 +158,51 @@ namespace TitleManagementSystem
                 FormPool.ProfileDatabase.Show();
                 FormPool.ProfileDatabase.BringToFront();
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            GridViewBind();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvMain.DataSource = null;
+            var myConn = new MySqlConnection(_mainConn);
+            var myDa = new MySqlDataAdapter($"select name, job, title, email, phone from profile_table where {cboColumn.Text} like '%{txtMainSearch.Text}%'", myConn);
+            myConn.Open();
+            var myDataSet = new DataSet();
+            myDa.Fill(myDataSet, "profile_table");
+            dgvMain.DataSource = myDataSet.Tables["profile_table"];
+            myConn.Close();
+            dgvMain.Columns[0].HeaderText = @"Name";
+            dgvMain.Columns[1].HeaderText = @"Job";
+            dgvMain.Columns[2].HeaderText = @"Title";
+            dgvMain.Columns[3].HeaderText = @"Email";
+            dgvMain.Columns[4].HeaderText = @"Phone";
+        }
+
+        private void txtMainSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+            }
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            if (FormPool.TransferHistory.IsDisposed || FormPool.TransferHistory == null)
+            {
+                FormPool.TransferHistory = new TransferHistory();
+            }
+            FormPool.TransferHistory.Show();
+            FormPool.TransferHistory.BringToFront();
+        }
+
+        private void btnJobTransfer_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

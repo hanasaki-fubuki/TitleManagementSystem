@@ -41,6 +41,8 @@ namespace TitleManagementSystem
             // 
             // dgvProfile
             // 
+            this.dgvProfile.AllowUserToAddRows = false;
+            this.dgvProfile.AllowUserToDeleteRows = false;
             this.dgvProfile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProfile.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvProfile.BorderStyle = System.Windows.Forms.BorderStyle.None;

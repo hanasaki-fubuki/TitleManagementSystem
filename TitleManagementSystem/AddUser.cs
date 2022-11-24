@@ -28,7 +28,7 @@ namespace TitleManagementSystem
         {
             if (txtPwd.Text == txtConfirmPwd.Text)
             {
-                if (txtUsername.Text != "" && cboAdmin.Text != "" && txtPwd.Text != "" && txtConfirmPwd.Text != "" && txtName.Text != "" && cboGender.Text != "")
+                if (txtUsername.Text != "" && cboAdmin.Text != "" && txtPwd.Text != "" && txtConfirmPwd.Text != "" && txtName.Text != "" && cboGender.Text != "" && txtJob.Text != "" && txtTitle.Text != "")
                 {
                     btnConfirm.Enabled = true;
                 }
@@ -92,17 +92,28 @@ namespace TitleManagementSystem
             else
             {
                 userExistsReader.Close();
-                var myCmd = new MySqlCommand($"insert into profile_table set name='{txtName.Text}', gender={gender}, email='{txtEmail.Text}', phone='{txtPhone.Text}'", myConn);
+                var myCmd = new MySqlCommand($"insert into profile_table set name='{txtName.Text}', gender={gender}, email='{txtEmail.Text}', phone='{txtPhone.Text}', job='{txtJob.Text}', title='{txtTitle.Text}'", myConn);
                 myCmd.ExecuteNonQuery();
                 var getProfileId = new MySqlCommand($"select id from profile_table where name='{txtName.Text}' order by id desc", myConn);
                 var profileId = Convert.ToInt32(getProfileId.ExecuteScalar());
                 var myCmd2 = new MySqlCommand($"insert into user_table set username='{txtUsername.Text}', password='{txtPwd.Text}', isAdmin='{isAdmin}', profile_id={profileId}", myConn);
                 myCmd2.ExecuteNonQuery();
+                var myCmd3 = new MySqlCommand($"insert into transfer_history set uid_link=(select id from user_table where username='{txtUsername.Text}'), op_time=now(), pre_job='reg', pre_title='reg', new_job='{txtJob.Text}', new_title='{txtTitle.Text}'", myConn);
+                myCmd3.ExecuteNonQuery();
                 myConn.Close();
                 MessageBox.Show(@"User added successfully! ", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                //Close();
             }
         }
 
+        private void txtJob_TextChanged(object sender, EventArgs e)
+        {
+            TextBoxValidate();
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+            TextBoxValidate();
+        }
     }
 }

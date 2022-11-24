@@ -54,8 +54,14 @@ namespace TitleManagementSystem
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtJob = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -236,10 +242,10 @@ namespace TitleManagementSystem
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(581, 139);
+            this.btnCancel.Location = new System.Drawing.Point(581, 197);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -247,21 +253,66 @@ namespace TitleManagementSystem
             // btnConfirm
             // 
             this.btnConfirm.Enabled = false;
-            this.btnConfirm.Location = new System.Drawing.Point(500, 139);
+            this.btnConfirm.Location = new System.Drawing.Point(500, 197);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 9;
+            this.btnConfirm.TabIndex = 11;
             this.btnConfirm.Text = "&Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(12, 144);
+            this.label9.Location = new System.Drawing.Point(12, 202);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(478, 23);
             this.label9.TabIndex = 15;
             this.label9.Text = "Note: Email and Phone is not required. User ID will be automatically generated. ";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtTitle);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.txtJob);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Location = new System.Drawing.Point(12, 139);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(644, 48);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Job Info";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(355, 19);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(283, 20);
+            this.txtTitle.TabIndex = 10;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(308, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 23);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "Title: ";
+            // 
+            // txtJob
+            // 
+            this.txtJob.Location = new System.Drawing.Point(42, 19);
+            this.txtJob.Name = "txtJob";
+            this.txtJob.Size = new System.Drawing.Size(254, 20);
+            this.txtJob.TabIndex = 9;
+            this.txtJob.TextChanged += new System.EventHandler(this.txtJob_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(6, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 23);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Job: ";
             // 
             // AddUser
             // 
@@ -269,13 +320,15 @@ namespace TitleManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(668, 170);
+            this.ClientSize = new System.Drawing.Size(668, 230);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -288,8 +341,16 @@ namespace TitleManagementSystem
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtJob;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label label12;
 
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboAdmin;
