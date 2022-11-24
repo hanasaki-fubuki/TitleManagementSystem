@@ -336,7 +336,7 @@ namespace TitleManagementSystem
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add a User  - [Admin]";
+            this.Text = "Add a User  - [Administrator Access]";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

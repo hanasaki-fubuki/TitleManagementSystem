@@ -102,7 +102,7 @@ namespace TitleManagementSystem
                 myCmd3.ExecuteNonQuery();
                 myConn.Close();
                 MessageBox.Show(@"User added successfully! ", @"Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Close();
+                Close();
             }
         }
 

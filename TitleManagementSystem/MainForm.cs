@@ -204,6 +204,7 @@ namespace TitleManagementSystem
         {
             var transfer = new Transfer();
             transfer.ShowDialog();
+            GridViewBind();
         }
 
         private void cboColumn_SelectedIndexChanged(object sender, EventArgs e)

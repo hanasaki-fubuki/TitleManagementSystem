@@ -181,7 +181,7 @@ namespace TitleManagementSystem
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Change User Password - [Admin]";
+            this.Text = "Change User Password - [Administrator Access]";
             this.ResumeLayout(false);
             this.PerformLayout();
         }

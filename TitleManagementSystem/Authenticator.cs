@@ -86,10 +86,12 @@ namespace TitleManagementSystem
                 profileInfoReader.Close();
                 var mainForm = new MainForm();
                 mainForm.Show();
+                var loginLog = new MySqlCommand($"insert into login_log set uid={Uid}, log_time=now(), status=0", mainConn);
+                loginLog.ExecuteNonQuery();
                 Close();
             }
             else
-            {
+            { 
                 MessageBox.Show(@"Invalid username or password. Please try again. ", @"Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsername.SelectAll();
                 txtUsername.Focus();
