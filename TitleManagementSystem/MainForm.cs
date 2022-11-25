@@ -120,6 +120,7 @@ namespace TitleManagementSystem
             lblGender.Text = editProfile.Gender == 1 ? @"Male" : @"Female";
             lblEmail.Text = editProfile.Email;
             lblPhone.Text = editProfile.Phone;
+            GridViewBind();
         }
 
         private void btnAdmin1_Click(object sender, EventArgs e)

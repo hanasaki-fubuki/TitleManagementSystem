@@ -57,6 +57,7 @@ namespace TitleManagementSystem
             this.txtPwd.Size = new System.Drawing.Size(204, 20);
             this.txtPwd.TabIndex = 5;
             this.txtPwd.UseSystemPasswordChar = true;
+            this.txtPwd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPwd_KeyDown);
             // 
             // txtUsername
             // 

@@ -65,25 +65,32 @@ namespace TitleManagementSystem
             var loginReader = loginProcess.ExecuteReader();
             if (loginReader.Read())
             {
+                //用户认证成功
                 loginReader.Close();
+                //从用户凭据表获取用户部分信息
                 mySql = $"select id, profile_id, isAdmin from user_table where username='{txtUsername.Text}'";
                 var getUser = new MySqlCommand(mySql, mainConn);
                 var userReader = getUser.ExecuteReader();
                 userReader.Read();
-                Uid = userReader.GetInt32(0);
+                //infoId用于从个人信息表中获取用户个人信息
                 var infoId = userReader.GetInt32(1);
+                //Uid和IsAdmin用于主窗体中的权限判断
+                Uid = userReader.GetInt32(0);
                 IsAdmin = userReader.GetInt32(2);
                 userReader.Close();
+                //从个人信息表获取用户个人信息
                 mySql = $"select * from profile_table where id={infoId}";
                 var getProfile = new MySqlCommand(mySql, mainConn);
                 var profileInfoReader = getProfile.ExecuteReader();
                 profileInfoReader.Read();
+                //以下参数用于传递给主窗体的用户信息显示模块
                 NameOfUser = profileInfoReader.GetString(1);
                 Gender = profileInfoReader.GetInt32(2);
                 Email = profileInfoReader.GetString(3);
                 Phone = profileInfoReader.GetString(4);
                 Position = profileInfoReader.GetString(5) + ", " + profileInfoReader.GetString(6);
                 profileInfoReader.Close();
+                //记录登录日志，关闭认证窗体，打开主窗体
                 var mainForm = new MainForm();
                 mainForm.Show();
                 var loginLog = new MySqlCommand($"insert into login_log set uid={Uid}, log_time=now(), status=0", mainConn);
@@ -92,6 +99,8 @@ namespace TitleManagementSystem
             }
             else
             { 
+                //用户认证失败，弹出对话框提示
+                loginReader.Close();
                 MessageBox.Show(@"Invalid username or password. Please try again. ", @"Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsername.SelectAll();
                 txtUsername.Focus();
